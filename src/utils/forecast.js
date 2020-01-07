@@ -13,7 +13,9 @@ const forecast = (latitude, longitude, callback) => {
             const {temperature, precipProbability} = body.currently 
             let message = body.daily.data[0].summary + " It is currently " +
             temperature + " degrees out. There is a " +
-            precipProbability + "% chance of rain."
+            precipProbability + "% chance of rain. Highest temperature " +
+            body.daily.data[0].temperatureMax + " degrees and Lowest temperature " +
+            body.daily.data[0].temperatureMin + " degrees."
             callback(undefined, message)
         }
     })
